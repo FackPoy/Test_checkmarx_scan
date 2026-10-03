@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Northstar Labs | Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="login-screen" id="login-screen" aria-labelledby="login-title">
+      <div class="login-panel">
+        <div class="brand-mark" aria-hidden="true">N</div>
+        <p class="eyebrow">NORTHSTAR LABS</p>
+        <h1 id="login-title">Good work starts here.</h1>
+        <p class="login-intro">Sign in to see your team's projects and progress.</p>
+        <p class="demo-note">Demo access: demo@example.com / password123</p>
+
+        <form id="login-form">
+          <div class="input-group">
+            <label for="email">Work email</label>
+            <input type="email" id="email" placeholder="you@company.com" autocomplete="username" required>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="primary-button login-btn">Sign in <span aria-hidden="true">&#8594;</span></button>
+          <p id="login-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="login-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-star">N</div>
+        <p>Make room<br>for what's next.</p>
+        <span class="art-caption">Ideas into motion</span>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden aria-labelledby="dashboard-title">
+      <aside class="sidebar">
+        <a class="sidebar-brand" href="#projects" aria-label="Northstar Labs home">
+          <span class="brand-mark small" aria-hidden="true">N</span>
+          <span>northstar<span class="brand-period">.</span></span>
+        </a>
+        <p class="nav-label">WORKSPACE</p>
+        <a class="nav-item active" href="#projects"><span aria-hidden="true">▦</span> Projects</a>
+        <div class="sidebar-company">
+          <span class="company-icon" aria-hidden="true">NL</span>
+          <span><strong>Northstar Labs</strong><small>Demo workspace</small></span>
+          <span class="company-chevron" aria-hidden="true">⌄</span>
+        </div>
+        <div class="sidebar-bottom">
+          <span class="online-dot" aria-hidden="true"></span>
+          <span>Workspace synced</span>
+        </div>
+      </aside>
+
+      <div class="dashboard-main">
+        <header class="topbar">
+          <p><span>Workspace</span><span class="crumb-divider">/</span> Projects</p>
+          <div class="user-menu">
+            <span class="user-avatar" aria-hidden="true">JD</span>
+            <span class="user-name">Jordan Davis<small>Admin</small></span>
+            <button class="icon-button sign-out" id="sign-out" type="button" aria-label="Sign out" title="Sign out">↪</button>
+          </div>
+        </header>
+
+        <div class="content-wrap" id="projects">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow" id="current-date"></p>
+              <h1 id="dashboard-title">Projects <span class="sample-tag">SAMPLE DATA</span></h1>
+              <p class="page-intro">A clear view of what your team is building.</p>
+            </div>
+            <button class="primary-button create-button" id="open-project-dialog" type="button"><span aria-hidden="true">+</span> New project</button>
+          </section>
+
+          <section class="metrics" aria-label="Project summary">
+            <article class="metric">
+              <span class="metric-label">Total projects</span>
+              <strong id="total-count">0</strong>
+              <span class="metric-note">Across your workspace</span>
+            </article>
+            <article class="metric">
+              <span class="metric-label">In progress</span>
+              <strong id="active-count">0</strong>
+              <span class="metric-note"><span class="metric-dot green"></span> Moving forward</span>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Planning</span>
+              <strong id="planning-count">0</strong>
+              <span class="metric-note"><span class="metric-dot amber"></span> Getting started</span>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Completed</span>
+              <strong id="completed-count">0</strong>
+              <span class="metric-note"><span class="metric-dot blue"></span> Across the finish line</span>
+            </article>
+          </section>
+
+          <section class="projects-section" aria-labelledby="project-list-title">
+            <div class="section-heading">
+              <div>
+                <h2 id="project-list-title">All projects</h2>
+                <p id="project-result-count">Your team's current work</p>
+              </div>
+              <label class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <span class="visually-hidden">Search projects</span>
+                <input id="project-search" type="search" placeholder="Search projects...">
+                <kbd>/</kbd>
+              </label>
+            </div>
+
+            <div class="project-toolbar">
+              <div class="filter-tabs" role="group" aria-label="Filter projects by status">
+                <button class="filter-tab active" type="button" data-filter="all" aria-pressed="true">All <span id="all-filter-count">0</span></button>
+                <button class="filter-tab" type="button" data-filter="In progress" aria-pressed="false">In progress</button>
+                <button class="filter-tab" type="button" data-filter="Planning" aria-pressed="false">Planning</button>
+                <button class="filter-tab" type="button" data-filter="Completed" aria-pressed="false">Completed</button>
+              </div>
+              <span class="sort-label">Recently updated <span aria-hidden="true">⌄</span></span>
+            </div>
+
+            <div class="project-grid" id="project-grid" aria-live="polite"></div>
+            <div class="empty-state" id="empty-state" hidden>
+              <span aria-hidden="true">⌕</span>
+              <h3>No projects found</h3>
+              <p>Try another search or choose a different status.</p>
+            </div>
+          </section>
+          <footer class="dashboard-footer">Northstar Labs <span>·</span> Demo workspace</footer>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <form id="project-form" method="dialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">WORKSPACE PROJECT</p>
+          <h2 id="dialog-title">Create a project</h2>
+        </div>
+        <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Close dialog">×</button>
+      </div>
+      <label class="dialog-field" for="project-name">Project name<input id="project-name" name="name" maxlength="60" placeholder="e.g. Website refresh" required></label>
+      <label class="dialog-field" for="project-owner">Project lead<input id="project-owner" name="owner" maxlength="40" placeholder="e.g. Jordan Davis" required></label>
+      <div class="dialog-row">
+        <label class="dialog-field" for="project-status">Status<select id="project-status" name="status"><option>Planning</option><option>In progress</option><option>Completed</option></select></label>
+        <label class="dialog-field" for="project-due">Due date<input id="project-due" name="dueDate" type="date"></label>
+      </div>
+      <label class="dialog-field" for="project-description">Description<textarea id="project-description" name="description" rows="3" maxlength="180" placeholder="What is this team working toward?"></textarea></label>
+      <div class="dialog-actions">
+        <button class="secondary-button" type="button" data-close-dialog>Cancel</button>
+        <button class="primary-button" type="submit">Create project</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="project-dialog details-dialog" id="details-dialog" aria-labelledby="details-title">
+    <div id="project-details"></div>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
